@@ -3,10 +3,33 @@
 Run with
 
 ```
-wendy main.w test.m
+wendy main.w cs241 test.m
 ```
 
 where test.m is some text file with MIPS instructions.
+
+That would output something like:
+```
+wendy main.w cs241 test.m
+.word 0x12345678
+.word 0x00430820
+.word 0x00430822
+.word 0x00220018
+.word 0x00220019
+.word 0x0022001a
+.word 0x0022001b
+.word 0x00000810
+.word 0x00000812
+.word 0x00000814
+.word 0x8c411234
+.word 0xac411234
+.word 0x0043082a
+.word 0x0043082b
+.word 0x10221234
+.word 0x14221234
+.word 0x00200008
+.word 0x00400009
+```
 
 # How it works
 
