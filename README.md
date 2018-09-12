@@ -10,7 +10,6 @@ where test.m is some text file with MIPS instructions.
 
 That would output something like:
 ```
-wendy main.w cs241 test.m
 .word 0x12345678
 .word 0x00430820
 .word 0x00430822
