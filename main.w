@@ -117,25 +117,6 @@ let binToHex => (binString) {
 	ret res;
 };
 
-let hexToInt => (hex) {
-	if startsWith(hex, "0x") {
-		hex = hex[2->hex.size];
-	}
-	let res = 0;
-	for c in hex {
-		res *= 16;
-		if contains("0123456789", c)
-			res += c.val - "0".val;
-		else if contains("abcdef", c)
-			res += 10 + c.val - "a".val;
-		else if contains("ABCDEF", c)
-			res += 10 + c.val - "A".val;
-		else
-			"Invalid character " + c + " in hex string";
-	}
-	ret res;
-};
-
 let splitParts => (line) {
 	// Dedups spaces, replaces "(", ")" and ","
 	let new = "";
@@ -153,9 +134,9 @@ let splitParts => (line) {
 		if startsWith(part, "$")
 			// Is a register
 			res += int(part[1->part.size]);
-		else if startsWith(part, "0x")
-			// Is a hex
-			res += hexToInt(part);
+		else if contains("01234567890", part[0])
+			// Is a int
+			res += int(part);
 		else
 			res += part;
 	ret res;
